@@ -29,7 +29,17 @@ export default {
   ** Global CSS
   */
   css: [
-    'vuesax/dist/vuesax.css'
+    'vuesax/dist/vuesax.css',
+    '~/assets/css/open-iconic-bootstrap.min.css',
+    '~/assets/css/animate.css',
+    '~/assets/css/owl.carousel.min.css',
+    '~/assets/css/owl.theme.default.min.css',
+    '~/assets/css/magnific-popup.css',
+    '~/assets/css/aos.css',
+    '~/assets/css/ionicons.min.css',
+    '~/assets/css/flaticon.css',
+    '~/assets/css/icomoon.css',
+    '~/assets/css/style.css'
   ],
   /*
   ** Plugins to load before mounting the App
