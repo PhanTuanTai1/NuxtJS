@@ -91,29 +91,11 @@
             </div>
             <div class="col-md-6">
               <div class="row">
-                <Story
-                  subheading="Dessert"
-                  topic="Tasty &amp; Delicious Foods"
-                  img="image_1.jpg"
-                  href="single.html"
-                />
-                <Story
-                  subheading="Dessert"
-                  topic="Tasty &amp; Delicious Foods"
-                  img="image_1.jpg"
-                  href="single.html"
-                />
-                <Story
-                  subheading="Dessert"
-                  topic="Tasty &amp; Delicious Foods"
-                  img="image_1.jpg"
-                  href="single.html"
-                />
-                <Story
-                  subheading="Dessert"
-                  topic="Tasty &amp; Delicious Foods"
-                  img="image_1.jpg"
-                  href="single.html"
+                <Story v-for="story in listStory" v-bind:key="story.topic"
+                  v-bind:subheading="story.subheading"
+                  v-bind:topic="story.topic"
+                  v-bind:img="story.img"
+                  v-bind:href="story.href"
                 />
               </div>
             </div>
@@ -494,13 +476,33 @@ import Logo from "~/components/Logo.vue";
 import VuesaxLogo from "~/components/VuesaxLogo.vue";
 import Footer from "~/components/Footer.vue";
 import Story from "~/components/Story.vue";
+import axios from "axios"
 
 export default {
+  asyncData(){
+    return axios.get(`http://localhost:4000/story`).then(res => {
+      return { lstStory: res.data }
+    })
+  },
+  data: function() {
+    return {
+      lstStory: null
+    }
+  },
+  beforeMount: function() {
+    //alert(JSON.stringify(this.lstStory))
+  },
   components: {
     Logo,
     VuesaxLogo,
     Footer,
     Story,
   },
+  
+  computed: {
+    listStory() {
+      return this.lstStory
+    }
+  }
 };
 </script>
