@@ -1,9 +1,9 @@
 <template>
-    <nuxt-link to="/products">Products</nuxt-link>
+    <div>{{ $route.params.pid }}</div>
 </template>
 
 <script>
 export default {
-  
-};
+    
+}
 </script>
